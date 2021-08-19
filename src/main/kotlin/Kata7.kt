@@ -9,23 +9,20 @@ fun revRot(nums: String, sz: Int): String {
     if (sz <= 0 || sz > nums.length) return ""
 
     // The code below doesn't work with Codewars. Here we use kotlin 1.5 while codewars supports only 1.3
-//    return nums.chunked(sz).filter { i -> i.length == sz }.joinToString("") { i ->
-//        if ((i.sumOf { it.digitToInt().toDouble().pow(3.0)}) % 2.0 == 0.0) {
-//            i.reversed()
-//        } else {
-//            i.drop(1) + i.take(1)
-//        }
-//    }
-
-    val temp = nums.chunked(sz).filter { i -> i.length == sz }.toList()
-    println(temp)
-    val tempToIntList = temp.map { i -> i.map(Character::getNumericValue) }
-    println(tempToIntList)
-    return nums.chunked(sz).filter { i -> i.length == sz }.toList()
-        .map { i -> i.map(Character::getNumericValue) }.joinToString("") { i ->
-        if ((i.sumByDouble { it.toDouble().pow(3.0) }) % 2.0 == 0.0) i.reversed().joinToString("")
-        else {
-            (i.drop(1) + i.take(1)).joinToString("")
+    return nums.chunked(sz).filter { i -> i.length == sz }.joinToString("") { i ->
+        if ((i.sumOf { it.digitToInt().toDouble().pow(3.0)}) % 2.0 == 0.0) {
+            i.reversed()
+        } else {
+            i.drop(1) + i.take(1)
         }
     }
+
+    /* This is the code based on Kotlin verion 1.3 */
+//    return nums.chunked(sz).filter { i -> i.length == sz }.toList()
+//        .map { i -> i.map(Character::getNumericValue) }.joinToString("") { i ->
+//        if ((i.sumByDouble { it.toDouble().pow(3.0) }) % 2.0 == 0.0) i.reversed().joinToString("")
+//        else {
+//            (i.drop(1) + i.take(1)).joinToString("")
+//        }
+//    }
 }
