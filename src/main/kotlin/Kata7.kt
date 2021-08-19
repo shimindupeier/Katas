@@ -16,4 +16,13 @@ fun revRot(nums: String, sz: Int): String {
             i.drop(1) + i.take(1)
         }
     }
+
+    /* This is the code based on Kotlin verion 1.3 */
+//    return nums.chunked(sz).filter { i -> i.length == sz }.toList()
+//        .map { i -> i.map(Character::getNumericValue) }.joinToString("") { i ->
+//        if ((i.sumByDouble { it.toDouble().pow(3.0) }) % 2.0 == 0.0) i.reversed().joinToString("")
+//        else {
+//            (i.drop(1) + i.take(1)).joinToString("")
+//        }
+//    }
 }
