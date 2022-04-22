@@ -1,7 +1,8 @@
 import kotlin.math.pow
 
 fun main() {
-    println(revRot("73304991087281576455176044327690580265896896028", 8))
+    println(revRot("123456987653", 6))
+    check(revRot("123456987653", 6) ==  "234561356789")
 }
 
 fun revRot(nums: String, sz: Int): String {
